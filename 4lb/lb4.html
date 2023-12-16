@@ -1,0 +1,513 @@
+<style>
+    .menu
+    {
+        display: grid;
+        width: 94%;
+        height: 100%;
+        /* background:grey; */
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        font-size: 1.0vw;
+        grid-gap: 1vw;
+        padding: 3%;
+        grid-template-areas:
+        "Picture1 Picture1 Picture1 Picture1 Picture1 Picture2 Picture2 Picture2"
+        "Picture1 Picture1 Picture1 Picture1 Picture1 Picture2 Picture2 Picture2"
+        /* "Name1 Name1 Name1 Name1 Name1 Name2 Name2 Name2" */
+        "text1 text1 text1 text1 text1 text2 text2 text2"
+        "text1 text1 text1 text1 text1 text2 text2 text2"
+        "Picture3 Picture3 Name3 Name3 Picture4 Picture4 Name4 Name4"
+        "text3 text3 text3 text3 text4 text4 text4 text4"
+        "Picture5 Picture5 Name5 Name5 Picture6 Picture6 Name6 Name6"
+        "text5 text5 text5 text5 text6 text6 text6 text6";
+    }
+    .Border1
+    {
+        border:solid black;
+        grid-column: 1 / 6;
+        grid-row: 1/5;
+    }
+    .Border2
+    {
+        border:solid black;
+        grid-column: 6 / 9;
+        grid-row: 1/5;
+    }
+    .menu  > .ItemPicture1
+    {
+        grid-area:Picture1;
+        overflow: hidden;
+        padding: 1%;
+    }
+    .menu  > .ItemPicture2
+    {
+        grid-area:Picture2;
+        overflow: hidden;
+        padding: 1%;
+    }
+    .menu  > .ItemPicture3
+    {
+        grid-area:Picture3;
+        overflow: hidden;
+    }
+    .menu  > .ItemPicture4
+    {
+        grid-area:Picture4;
+        overflow: hidden;
+    }
+    .menu  > .ItemPicture5
+    {
+        grid-area:Picture5;
+        overflow: hidden;
+    }
+    .menu  > .ItemPicture6
+    {
+        grid-area:Picture6;
+        overflow: hidden;
+    }
+    /* .menu  > .ItemName1
+    {
+        grid-area:Name1;
+        text-align:center;
+    } */
+    /* .menu  > .ItemName2
+    {
+        grid-area:Name2;
+        text-align:center;
+    } */
+    .menu  > .ItemName3
+    {
+        grid-area:Name3;
+        text-align:center;
+    }
+    .menu  > .ItemName4
+    {
+        grid-area:Name4;
+        text-align:center;
+    }
+    .menu  > .ItemName5
+    {
+        grid-area:Name5;
+        text-align:center;
+    }
+    .menu  > .ItemName6
+    {
+        grid-area:Name6;
+        text-align:center;
+    }
+    .menu > .ItemText1
+    {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        grid-area:text1;
+        padding: 1%;
+    }
+    .menu > .ItemText2
+    {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        grid-area:text2;
+        padding: 1%;
+    }
+    .menu > .ItemText3
+    {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        grid-area:text3;
+    }
+    .menu > .ItemText4
+    {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        grid-area:text4;
+    }
+    .menu > .ItemText5
+    {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        grid-area:text5;
+    }
+    .menu > .ItemText6
+    {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        grid-area:text6;
+    }
+    .Last
+    {
+        display:grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-rows: 1fr;
+        font-size: 1.0vw;
+    }
+    .LastFIO
+    {
+        text-align:left;
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .LastContacts
+    {
+        text-align:right;
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+
+    .UpThings
+    {
+        display:grid;
+        font-size: 1.0vw;
+        grid-column-gap : 3%;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+    .UpThings > .UpColorFirst
+    {
+        background-color: gray;
+        grid-column: 1 / 9;
+        grid-row: 1/2;
+    }
+    .UpThings > .UpColorSecond
+    {
+        background-color: lightblue;
+        grid-column: 1 / 9;
+        grid-row: 2/5;
+    }
+    .UpThings > .Search
+    {
+        grid-column: 5 / 9;
+        grid-row: 1/2;
+        text-align:right;
+    }
+    .UpThings > .TopName
+    {
+        grid-column: 4 / 7;
+        grid-row: 2/3;
+        text-align: left;
+    }
+    .UpThings  > .Menu1
+    {
+        grid-column: 5 / 6;
+        grid-row: 4/5;
+        text-align: center;
+    }
+    .UpThings  > .Menu1 a
+    {
+        text-decoration: none;
+        color: black;
+    }
+    .UpThings  > .Menu1:hover
+    {
+        display: block;
+        width: 100%;
+        height: 110%;
+        background-color: lightgray;
+    }
+    .UpThings  > .Menu2
+    {
+        grid-column: 6 / 7;
+        grid-row: 4/5;
+        text-align: center;
+    }
+    .UpThings  > .Menu2 a
+    {
+        text-decoration: none;
+        color: black;
+    }
+    .UpThings  > .Menu2:hover
+    {
+        display: block;
+        width: 100%;
+        height: 110%;
+        background-color: lightgray;
+    }
+    .UpThings  > .Menu3
+    {
+        grid-column: 7 / 8;
+        grid-row: 4/5;
+        text-align: center;
+    }
+    .UpThings  > .Menu3 a
+    {
+        text-decoration: none;
+        color: black;
+    }
+    .UpThings  > .Menu3:hover
+    {
+        display: block;
+        width: 100%;
+        height: 110%;
+        background-color: lightgray;
+    }
+    @media all and (max-width: 600px)
+    {
+        .Last
+    {
+        display:grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-rows: 1fr;
+        font-size: 3.0vw;
+    }
+        .menu
+    {
+        display: grid;
+        width: 94%;
+        height: 200%;
+        /* background:grey; */
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(30, 1fr);
+        font-size: 3.0vw;
+        grid-gap: 1vw;
+        padding: 3%;
+        grid-template-areas:
+        "Picture1 Picture1 Picture1"
+        "Picture1 Picture1 Picture1"
+        "Picture1 Picture1 Picture1"
+        "text1 text1 text1"
+        "text1 text1 text1"
+        "text1 text1 text1"
+        "Picture2 Picture2 Picture2"
+        "Picture2 Picture2 Picture2"
+        "Picture2 Picture2 Picture2"
+        "text2 text2 text2"
+        "text2 text2 text2"
+        "Picture3 Picture3 Picture3"
+        "Picture3 Picture3 Picture3"
+        "Picture3 Picture3 Picture3"
+        "Name3 Name3 Name3"
+        "text3 text3 text3"
+        "Picture4 Picture4 Picture4"
+        "Picture4 Picture4 Picture4"
+        "Picture4 Picture4 Picture4"
+        "Name4 Name4 Name4"
+        "text4 text4 text4"
+        "Picture5 Picture5 Picture5"
+        "Picture5 Picture5 Picture5"
+        "Picture5 Picture5 Picture5"
+        "Name5 Name5 Name5"
+        "text5 text5 text5"
+        "Picture6 Picture6 Picture6"
+        "Picture6 Picture6 Picture6"
+        "Picture6 Picture6 Picture6"
+        "Name6 Name6 Name6"
+        "text6 text6 text6";
+        /* "Picture1 Picture1 Picture1 Picture1 Picture1 Picture2 Picture2 Picture2"
+        "Picture1 Picture1 Picture1 Picture1 Picture1 Picture2 Picture2 Picture2" */
+        /* "Name1 Name1 Name1 Name1 Name1 Name2 Name2 Name2" */
+        /* "text1 text1 text1 text1 text1 text2 text2 text2"
+        "text1 text1 text1 text1 text1 text2 text2 text2"
+        "Picture3 Picture3 Name3 Name3 Picture4 Picture4 Name4 Name4"
+        "text3 text3 text3 text3 text4 text4 text4 text4"
+        "Picture5 Picture5 Name5 Name5 Picture6 Picture6 Name6 Name6"
+        "text5 text5 text5 text5 text6 text6 text6 text6"; */
+    }
+    .UpThings
+    {
+        width: 100%;
+        display:grid;
+        font-size: 3.5vw;
+        grid-column-gap : 3%;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+    .UpThings > .Search
+    {
+        display: none;
+    }
+    .UpThings > .TopName
+    {
+        display: none;
+        grid-column: 1 / 4;
+        grid-row: 2/3;
+        text-align: center;
+    }
+    .UpThings  > .Menu1
+    {
+        width: 120%;
+        grid-column: 1 / 4;
+        grid-row: 1/2;
+        text-align: center;
+    }
+    .UpThings  > .Menu2
+    {
+        width: 120%;
+        grid-column: 1 / 4;
+        grid-row: 2/3;
+        text-align: center;
+    }
+    .UpThings  > .Menu3
+    {
+        width: 120%;
+        grid-column: 1 / 4;
+        grid-row: 3/4;
+        text-align: center;
+    }
+    .UpThings > .UpColorFirst
+    {
+        display: block;
+        background-color: white;
+        text-align: center;
+        grid-column: 2 / 3;
+        grid-row: 1/2;
+    }
+    .UpThings > .UpColorSecond
+    {
+        display: block;
+        background-color: white;
+    }
+    .UpThings  > .Menu3:hover
+    {
+        display: block;
+        width: 120%;
+        background-color: white;
+        /* width: 100%;
+        height: 110%;
+        background-color: lightgray; */
+    }
+    .UpThings  > .Menu1:hover
+    {
+        display: block;
+        width: 120%;
+        background-color: white;
+        }
+    .UpThings  > .Menu2:hover
+    {
+        display: block;
+        width: 120%;
+        background-color: white;
+    }
+    .UpThings > .Search
+    {
+        grid-column: 2 / 3;
+        grid-row: 1/2;
+        text-align:center;
+    }
+    .UpThings  > .Menu1 a
+    {
+        text-decoration: none;
+        color: black;
+        background-color: gray;
+    }
+    .Border1
+    {
+        border:solid black;
+        grid-column: 1 / 4;
+        grid-row: 1/7;
+    }
+    .Border2
+    {
+        border:solid black;
+        grid-column: 1 / 4;
+        grid-row: 7/12;
+    }
+    }
+</style>
+<!DOCTYPE html>
+<div class ="UpThings">
+    <div class ="UpColorFirst">
+    </div>
+    <div class ="UpColorSecond">
+    </div>
+    <div class = "Search">
+        <form>
+            <input type="text" width = 100%> 🔍
+        </form> 
+            
+    </div>
+    <div class ="TopName">
+        Интересные и необычные озера
+    </div>
+    <div class ="Menu1">
+        <a href = "lb4.html">
+            Главная страница 
+        </a>
+    </div>
+    <div class ="Menu2">
+        <a href = "lb2.2.html">
+            Таблица Озер 
+        </a>
+    </div>
+    <div class = "Menu3"> 
+        <a href = "lb2.3.html">
+            Подробное описание 
+        </a>
+    </div>
+</div>
+<div class ="menu">
+    <div class = "Border1">
+    </div>
+    <div class = "Border2">
+    </div>
+    <div class = "ItemPicture1">
+        <img src = https://image2.turizm.ru/CE/pub/page/169139/00.jpg width="100%" height =100%>
+    </div>
+    <div class = "ItemPicture2">
+        <img src = https://image2.turizm.ru/CE/pub/page/169139/02.jpg width="100%" height =100%>
+    </div>
+    <div class = "ItemPicture3">
+        <img src = https://image2.turizm.ru/CE/pub/page/169139/03.jpg width="100%" height =100%>
+    </div>
+    <div class = "ItemPicture4">
+        <img src = https://image2.turizm.ru/CE/pub/page/169139/04.jpg width="100%" height =100%>
+    </div>
+    <div class = "ItemPicture5">
+        <img src = https://image2.turizm.ru/CE/pub/page/169139/06.jpg width="100%" height =100%>
+    </div>
+    <div class = "ItemPicture6">
+        <img src = https://image2.turizm.ru/CE/pub/page/169139/08.jpg width="100%" height =100%>
+    </div>
+    <!-- <div class ="ItemName1">
+        Озеро Утренней Славы
+    </div>
+    <div class ="ItemName2">
+        Озеро Килук
+    </div> -->
+    <div class ="ItemName3">
+        Озеро Пустое
+    </div>
+    <div class ="ItemName4">
+        Озеро Пич-Лейк
+    </div>
+    <div class ="ItemName5">
+        Чернильное Озеро
+    </div>
+    <div class ="ItemName6">
+        Озеро Келимуту
+    </div>
+    <!-- <div class ="ItemName1">
+        Озеро Утренней Славы
+    </div> -->
+    <div class ="ItemText1">
+        <p align = center>
+        Озеро Утренней Славы
+        </p>
+        Озеро Утренней Славы (англ. Morning Glory Pool) — геотермальный источник в Йеллоустонском парке в США.
+    </div>
+    <div class ="ItemText2">
+        <p align = center>
+        Озеро Килук
+        </p>
+        Споттед-Лейк или Клилук — солёное бессточное минеральное озеро в Британской Колумбии, Канада. Расположено в Восточной долине Симилкамин, в 10 км к северо-западу от города Осуюс.    
+    </div>
+    <div class ="ItemText3">
+        Пустое — озеро на территории Онежского района Архангельской области в России. Морфометрия · Абсолютная высота, 186,5 м. Площадь, 5,2 км².    
+    </div>
+    <div class ="ItemText4">
+        Пич-Лейк (англ. Pitch Lake) — смоляная яма, состоящая из смеси асфальта, песка и глины. Расположено на юго-западе острова Тринидад недалеко от населённого пункта Ла-Брея. Имеет площадь около 40 га и глубину около 80 метров. Запасы асфальта оцениваются в более чем 6 млн тонн, десятки тысяч из которых добываются каждый год.     
+    </div>
+    <div class ="ItemText5">
+        Уникальное чернильное озеро расположено неподалеку от города Сиди-Бель-Аббес в Алжире. В нем нет ни рыбы, ни растений, так как чернила, которыми наполнено озеро вместо воды, ядовиты для живых организмов и пригодны только для письма.    
+    </div>
+    <div class ="ItemText6">
+        Келимуту — вулкан на индонезийском острове Флорес высотой в 1639 м. Из-за трёх кратерных озёр, из которых каждое окрашено в свой цвет, Келимуту является популярной туристической достопримечательностью.    
+    </div>
+</div>
+    <hr width="100%">
+    <div class ="Last">
+        <div class ="LastFIO">
+            Ерошенко С.В., Б9121-09.03.04прогин, 2 группа, 2023-2024
+        </div>
+        <div class ="LastContacts">
+            Контакты
+        </div>
+    </div>
